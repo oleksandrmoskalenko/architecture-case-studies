@@ -26,11 +26,12 @@ Instead, this repository serves as an architectural deep dive into the specific 
 
 ---
 
-## 🔄 Case Study 3: Live Workspace Sync & Custom Dashboards (Collega / Fleetify)
-**Core Challenge:** Engineering interactive workspaces — including a live multi-step questionnaire wizard with cross-device synchronization and custom B2B dashboards featuring heavy data visualization.
+## 🔄 Case Study 3: Advanced State Management, Real-Time Sync & Routing (Agent-X / Collega / Fleetify)
+**Core Challenge:** Engineering complex workspace ecosystems requiring high-density data visualization, bidirectional real-time synchronization, and multi-tenant secure routing layers.
 
 ### Architectural Decisions
-* **WebSocket State Synchronization (Collega):** Built a bidirectional sync layer using WebSockets for the multi-step wizard. Local UI state changes triggered debounced event dispatches to the server, while incoming server events performed optimistic client-side cache updates via TanStack React Query and Zustand.
+* **Secure Routing & RBAC (Agent-X):** Implemented a robust Role-Based Access Control (RBAC) system for tailored user and admin areas. Leveraged **Next.js Middleware** alongside **JWT validation** to intercept and authorize route requests on the edge, handling locale persistence via cookies and localStorage seamlessly.
+* **WebSocket State Synchronization (Collega):** Built a bidirectional sync layer using WebSockets for the multi-step questionnaire wizard. Local UI state changes triggered debounced event dispatches to the server, while incoming server events performed optimistic client-side cache updates via TanStack React Query and Zustand.
 * **Dashboard Layout Persistence (Fleetify):** For the drag-and-drop widget infrastructure, engineered an async persistence synchronization. Widget geometry coordinates and positioning weights were tracked inside a centralized Redux Toolkit store and synchronized with backend storage via debounced API patches to prevent network flooding and ensure a smooth 60 FPS movement layout.
 
 ---
