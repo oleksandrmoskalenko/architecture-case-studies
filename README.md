@@ -26,12 +26,12 @@ Instead, this repository serves as an architectural deep dive into the specific 
 
 ---
 
-## 🔄 Case Study 3: Live Workspace Sync & Dashboards (Collega / Fleetify)
-**Core Challenge:** Engineering a dynamic multi-step questionnaire wizard and interactive dashboards with live, cross-device state synchronization and complex role-based access.
+## 🔄 Case Study 3: Live Workspace Sync & Custom Dashboards (Collega / Fleetify)
+**Core Challenge:** Engineering interactive workspaces — including a live multi-step questionnaire wizard with cross-device synchronization and custom B2B dashboards featuring heavy data visualization.
 
 ### Architectural Decisions
-* **WebSocket State Synchronization:** Built a bidirectional sync layer using WebSockets. Local UI state changes in the wizard triggered debounced event dispatches to the server, while incoming server events performed optimistic client-side cache updates via TanStack React Query.
-* **Layout Persistence:** For the drag-and-drop dashboard widgets, engineered an async persistence sync. Widget geometry coordinates were tracked in a local Zustand store and synchronized with backend storage via debounced API patches to prevent network flooding.
+* **WebSocket State Synchronization (Collega):** Built a bidirectional sync layer using WebSockets for the multi-step wizard. Local UI state changes triggered debounced event dispatches to the server, while incoming server events performed optimistic client-side cache updates via TanStack React Query and Zustand.
+* **Dashboard Layout Persistence (Fleetify):** For the drag-and-drop widget infrastructure, engineered an async persistence synchronization. Widget geometry coordinates and positioning weights were tracked inside a centralized Redux Toolkit store and synchronized with backend storage via debounced API patches to prevent network flooding and ensure a smooth 60 FPS movement layout.
 
 ---
 
